@@ -62,12 +62,7 @@ function HomePage() {
             </p>
         </article>
 
-        <article className="text-box" aria-describedby="budgeting-desc">
-                <h1>Chart</h1>
-                <p>
-                    <canvas id="myChart" width="400" height="400"></canvas>
-                </p>
-        </article>
+        
 
     </div>
 </main>

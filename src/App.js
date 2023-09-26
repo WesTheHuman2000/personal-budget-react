@@ -11,6 +11,7 @@ import HomePage from './HomePage/HomePage'
 import Footer from './Footer/Footer'
 import AboutPage from './AboutPage/AboutPage';
 import LoginPage from './LoginPage/LoginPage';
+import Budget from './Budget/Budget';
 
 
 function App() {
@@ -24,11 +25,14 @@ function App() {
             </Route>
             <Route path='/login' element= {<LoginPage/>}>
             </Route>
+            <Route path='/budget' element={<Budget/>}>
+            </Route>
             <Route path='/'element= {<HomePage/>}>
             </Route>
           </Routes>
         </div>
         <Footer/>
+        
     </Router>
   );
 };
