@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,7 +13,6 @@ import AboutPage from './AboutPage/AboutPage';
 import LoginPage from './LoginPage/LoginPage';
 import Budget from './Budget/Budget';
 import D3Budget from './D3Budget/D3Budget';
-
 
 function App() {
   return (

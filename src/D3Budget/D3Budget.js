@@ -10,9 +10,6 @@ function D3Budget() {
 	  }, [])
 	  
     return (
-    
-        
-            
             <div id="d3-chart"></div>
         
     );
