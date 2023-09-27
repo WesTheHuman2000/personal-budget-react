@@ -1,56 +1,43 @@
-import React from 'react';
 import Axios from 'axios';
-import d3 from 'http://d3js.org/d3.v3.min.js'
+import * as d3 from 'd3'
+import React, { useEffect } from 'react';
+
 
 function D3Budget() {
 
-    
-    getBudgetDataAndInitializeChart();
+	useEffect(() => {
+		getBudgetDataAndInitializeChart();
+	  }, [])
+	  
     return (
     
-        <article className="text-box">
-                    <h1>Chart</h1>
-                    <p>
-                        <canvas id="myChart" width="400" height="400"></canvas>
-                    </p>
-        </article>
+        
+            
+            <div id="d3-chart"></div>
+        
     );
 }
-
-//data source
-/*
-const dataSource = {
-    datasets: [{
-        data: [30, 500, 90],
-        backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-],
-}],
-
-
-labels: [
-    'Eat out',
-    'Rent',
-    'Groceries'
-]
-};
-
-*/
 
 
     function getBudgetDataAndInitializeChart() {
         Axios.get('http://localhost:3000/budget')
-            .then(function (res) {
+    	.then(function(res) {
+				
+				console.log('from d3')
                 console.log(res.data);
-                const budgetData = transformBudgetData(res.data)
+                var budgetData = transformBudgetData(res.data)
+
+				console.log('Data from Axios:', res.data);
+				console.log('Transformed Data:', budgetData);
+
                 initializeChart(budgetData);
             });
     }
 
 
 function transformBudgetData(data) {
+	console.log('Transforming budget Data')
+	console.log(data)
     return data.budget.myBudget.map(item => ({
         label: item.title,
         value: item.budget
@@ -58,7 +45,7 @@ function transformBudgetData(data) {
 };
 
 function initializeChart(data){
-    var svg = d3.select("body")
+    var svg = d3.select('#d3-chart')
 	.append("svg")
 	.append("g")
 
